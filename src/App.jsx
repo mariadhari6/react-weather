@@ -1,9 +1,11 @@
 import React from "react";
-import TopBanner from "./components/TopBanner";
+import AppBar from "./components/AppBar";
+import Weather from "./components/Weather";
 function App() {
   return (
     <React.Fragment>
-      <TopBanner />
+      <AppBar />
+      <Weather />
     </React.Fragment>
   );
 }

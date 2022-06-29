@@ -15,110 +15,101 @@
   font-weight: normal;
 }
 
-button {
-  cursor: pointer;
-}
 
-input {
+input[type=text] {
+  appearance: none;
   -webkit-appearance: none;
-}
-
-button,
-input {
   border: none;
   background: none;
   outline: none;
   color: inherit;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-ul {
-  list-style: none;
-}
-
-body {
-  font: 1rem/1.3 "Roboto", sans-serif;
-  background: var(--bg_main);
-  color: var(--text_dark);
-  padding: 50px;
-}
-
-/*CUSTOM VARIABLES HERE*/
-
-.top-banner {
-  color: var(--text_light);
-}
-
-.heading {
-  font-weight: bold;
-  font-size: 4rem;
-  letter-spacing: 0.02em;
-  padding: 0 0 30px 0;
-}
-
-.top-banner form {
-  position: relative;
-  display: flex;
-  align-items: center;
-}
-
-.top-banner form input {
-  font-size: 2rem;
+  /* width: 100%; */
   height: 40px;
   padding: 5px 5px 10px;
+  font-size: 1.2rem !important;
   border-bottom: 1px solid;
 }
 
-.top-banner form input::placeholder {
+input::placeholder {
   color: currentColor;
 }
 
-.top-banner form button {
-  font-size: 1rem;
-  font-weight: bold;
-  letter-spacing: 0.1em;
-  padding: 15px 20px;
-  margin-left: 15px;
-  border-radius: 5px;
-  background: var(--red);
-  transition: background 0.3s ease-in-out;
+body {
+  /* background: #0485c7; */
+  background: var(--bg_main);
+  color: #fff;
+  font-family: "Roboto", sans-serif;
 }
 
-.top-banner form button:hover {
-  background: var(--darkred);
+/* Custom css */
+.button {
+  background-color: #2b2622;
+  position: relative;
+  width: 74px;
+  height: 36px;
+  overflow: hidden;
+  /* left: 55%; */
+  outline: solid 1px #fff;
+  margin-top: 1.5rem;
 }
 
-.top-banner form .msg {
+.button.r,
+.button.r .layer {
+  border-radius: 100px;
+}
+
+.checkbox {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  opacity: 0;
+  cursor: pointer;
+  z-index: 3;
+}
+
+.knobs {
+  z-index: 2;
+}
+
+.layer {
+  width: 100%;
+  background-color: #ebf7fc;
+  transition: 0.3s ease all;
+  z-index: 1;
+}
+
+#button .knobs:before {
+  content: '°C';
   position: absolute;
-  bottom: -40px;
-  left: 0;
-  max-width: 450px;
-  min-height: 40px;
+  top: 4px;
+  left: 4px;
+  width: 20px;
+  height: 10px;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  line-height: 1;
+  padding: 9px 4px;
+  background-color: #03A9F4;
+  border-radius: 50%;
+  transition: 0.3s cubic-bezier(0.18, 0.89, 0.35, 1.15) all;
 }
 
-@media screen and (max-width: 700px) {
-  .top-banner form {
-    flex-direction: column;
-  }
+#button .checkbox:checked+.knobs:before {
+  content: '°F';
+  left: 42px;
+  background-color: #f44336;
+}
 
-  .top-banner form input,
-  .top-banner form button {
-    width: 100%;
-  }
+#button .checkbox:checked~.layer {
+  background-color: #fcebeb;
+}
 
-  .top-banner form button {
-    margin: 20px 0 0 0;
-  }
-
-  .top-banner form .msg {
-    position: static;
-    max-width: none;
-    min-height: 0;
-    margin-top: 10px;
-  }
+#button .knobs,
+#button .knobs:before,
+#button .layer {
+  transition: 0.3s ease all;
 }
