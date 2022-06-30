@@ -1,0 +1,1 @@
+export const listHari = ["Minggu", "Senin", "Selasa", "Rabu", "Kamis", "Jum'at", "Sabtu"]
